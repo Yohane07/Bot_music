@@ -63,7 +63,7 @@ async function execute(message, serverQueue) {
     const args = message.content.split(" "); // On récupère les arguments dans le message pour la suite
 
     const voiceChannel = message.member.voice.channel;
-    if (!voiceChannel) // Si l'utilisateur n'est pas dans un salon vocal
+    if (!voiceChannel) // Au cas ou l'utilisateur n'est pas connecté
     {
             return message.channel.send(
                 "Vous devez être dans un salon vocal!"
@@ -117,21 +117,6 @@ async function execute(message, serverQueue) {
             return message.channel.send(`${song.title} has been added to the queue!`);
     }
 
-}
-
-function skip(message, serverQueue) {
-    if (!message.member.voice.channel) // on vérifie que l'utilisateur est bien dans un salon vocal pour skip
-    {
-            return message.channel.send(
-                "Vous devez être dans un salon vocal pour passer une musique!"
-            );
-    }
-    if (!serverQueue) // On vérifie si une musique est en cours
-    {
-            return message.channel.send("Aucune lecture de musique en cours !");
-    }
-    serverQueue.connection.dispatcher.end(); // On termine la musique courante, ce qui lance la suivante grâce à l'écoute d'événement
-                                             // finish
 }
 
 function stop(message, serverQueue) {
