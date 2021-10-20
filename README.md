@@ -2,9 +2,11 @@ Bot_music
 ============
 
 #Table de contenus
-Tutorials
+.Prérequis
+.Node JS
 
-#Prerequisite
+
+#Prérequis
 Node Js
 environnement de développement: Visual Studio Code 
 un compte discord
